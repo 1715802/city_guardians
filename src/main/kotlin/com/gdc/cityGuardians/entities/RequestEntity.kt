@@ -1,20 +1,24 @@
 package com.gdc.cityGuardians.entities
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = "request")
 data class RequestEntity(
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "request_id")
-        val id: String,
-        @Column(name = "place_id")
-        val placeId: String,
-        @Column(name = "person_id")
-        val personId: String,
+        val id: Long,
+
+        @OneToOne
+        @JoinColumn(name = "place_id")
+        val place: PlaceEntity,
+
+        @ManyToOne
+        @JoinColumn(name = "person_id")
+        val person: PersonEntity,
+
+        @OneToOne
         @Column(name = "problem_id")
-        val problemId: String
+        val problem: ProblemEntity
 )
