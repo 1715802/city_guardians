@@ -22,9 +22,9 @@ CREATE TABLE problem
     problem VARCHAR (255) NOT NULL
 );
 
-CREATE TABLE request
+CREATE TABLE solicitation
 (
-    request_id BIGINT NOT NULL PRIMARY KEY,
+    solicitation_id BIGINT NOT NULL PRIMARY KEY,
     place_id BIGINT NOT NULL,
     person_id BIGINT NOT NULL,
     problem_id BIGINT NOT NULL,
