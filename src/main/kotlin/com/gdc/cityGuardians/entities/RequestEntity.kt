@@ -19,6 +19,6 @@ data class RequestEntity(
         val person: PersonEntity,
 
         @OneToOne
-        @Column(name = "problem_id")
+        @JoinColumn(name = "problem_id")
         val problem: ProblemEntity
 )
